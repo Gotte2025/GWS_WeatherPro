@@ -1,0 +1,67 @@
+{
+  "thingspeak": {
+    "channelId": "2879152",
+    "apiUrl": "https://api.thingspeak.com",
+    "refreshInterval": 15000,
+    "historicalRecords": 100
+  },
+  "fields": {
+    "field1": {
+      "name": "Temperatura",
+      "unit": "°C",
+      "icon": "🌡️",
+      "color": "#ff6b6b",
+      "min": -50,
+      "max": 60
+    },
+    "field2": {
+      "name": "Humedad",
+      "unit": "%",
+      "icon": "💧",
+      "color": "#4dabf7",
+      "min": 0,
+      "max": 100
+    },
+    "field7": {
+      "name": "Estado de Alarma",
+      "icon": "⚠️",
+      "activeValue": 1,
+      "normalLabel": "NORMAL",
+      "activeLabel": "ALARMA",
+      "noDataLabel": "SIN DATOS",
+      "normalColor": "#ffd43b",
+      "activeColor": "#ff6b6b",
+      "noDataColor": "#888888"
+    }
+  },
+  "ui": {
+    "theme": "dark",
+    "accentColor": "#00d4ff",
+    "refreshVisual": true,
+    "showHistorical": true,
+    "showRecommendations": true,
+    "mobileOptimized": true
+  },
+  "calculations": {
+    "thermalSensation": {
+      "enabled": true,
+      "formula": "temp + (humidity / 100) * 2"
+    },
+    "dewPoint": {
+      "enabled": true,
+      "formula": "temp - ((100 - humidity) / 5)"
+    }
+  },
+  "notifications": {
+    "alertHighTemp": 40,
+    "alertLowTemp": 0,
+    "alertHighHumidity": 90,
+    "alertLowHumidity": 20
+  },
+  "display": {
+    "timeFormat": "es-ES",
+    "dateFormat": "es-ES",
+    "temperatureUnit": "celsius",
+    "decimals": 1
+  }
+}
